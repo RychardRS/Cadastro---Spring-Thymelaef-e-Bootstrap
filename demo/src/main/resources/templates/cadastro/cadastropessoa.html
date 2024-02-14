@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymelaef.org"
+      xmlns:sec="http://www.thymelaef.org/extras/spring-security">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Cadastro</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="\materialize\css\materialize.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="materialize.min.css"  media="screen,projection"/>
+
+    <style type="text/css">
+        table.striped>tbody>tr:nth-child(odd){
+            background-color: rgba(158, 154, 154, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+
+  <h3 style="color: #26a69a; margin-left: 5px">Cadastro de Usuário</h3>
+
+  <div class="row">
+      <form action = "salvarpessoa" method="post" th:object="${pessoaobj}" class="col s12">
+
+          <div class="row">
+              <div class="input-fiel col s6">
+                  <label>ID</label>
+                  <input name="id" th:field="*{id}" readonly="readonly">
+              </div>
+              <div class="input-fiel col s6">
+                  <label>Nome</label>
+                  <input name="nome" th:field="*{nome}">
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="input-fiel col s6">
+                  <label>Sobrenome</label>
+                  <input name="sobrenome" th:field="*{sobrenome}">
+            </div>
+              <div class="input-fiel col s6">
+                  <label>Idade</label>
+                  <input name="idade" th:field="*{idade}">
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="input-fiel col s6">
+                  <label>CPF</label>
+                  <input name="cpf" th:field="*{cpf}">
+              </div>
+              <div class="input-fiel col s6">
+                  <label>Data de Nascimento</label>
+                  <input name="date" th:field="*{date}">
+              </div>
+          </div>
+
+          <button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar
+              <i class="material-icons right">send</i>
+          </button>
+
+      </form>
+  </div>
+  <br/>
+
+        <div class="row">
+            <div class="input-fiel col s12">
+                <form th:action="@{/pesquisarpessoa}" method="get">
+                      <label>Buscar usuários</label>
+                      <input name="nomepesquisa">
+                          <button class="btn waves-effect waves-light" type="submit" name="action">Buscar</button>
+                        <a class="btn waves-effect waves-light" href="/cadastro/listarpessoas">Lista de pessoas</a>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-fiel col s12">
+                <table class="centered striped" >
+                    <tr class="center">
+                        <th class="center">ID</th>
+                        <th class="center">Nome</th>
+                        <th class="center">Sobrenome</th>
+                        <th class="center">Idade</th>
+                        <th class="center">CPF</th>
+                        <th class="center">Data de Nascimento</th>
+                        <th class="center">Editar</th>
+                        <th class="center">Excluir</th>
+                    </tr>
+                    <tr th:each = "pessoa: ${pessoas}">
+                        <td th:text = "${pessoa.id}"></td>
+                        <td th:text = "${pessoa.nome}"></td>
+                        <td th:text = "${pessoa.sobrenome}"></td>
+                        <td th:text = "${pessoa.idade}"></td>
+                        <td th:text = "${pessoa.cpf}"></td>
+                        <td th:text = "${pessoa.date}"></td>
+                        <td>
+                            <a th:href = "@{/editarpessoa/{idpessoa}(idpessoa=${pessoa.id})}">Editar</a>
+                        </td>
+                        <td>
+                            <a th:href = "@{/removerpessoa/{idpessoa}(idpessoa=${pessoa.id})}">Excluir</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+  <script type="text/javascript" src="materialize/js/materialize.js"></script>
+  <script type="text/javascript" src="materialize/js//materialize/materialize.min.js"></script>
+
+</body>
+</html>
