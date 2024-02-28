@@ -1,4 +1,4 @@
-package security;
+package exemplo1.demo.security;
 
 
 import exemplo1.demo.model.Usuario;
@@ -21,7 +21,7 @@ public class ImplementacaoUserDetailsService implements UserDetailsService {
         Usuario usuario = usuarioRepository.findUserByLogin(username);
 
         if (usuario == null) {
-            throw new UsernameNotFoundException("Usuário não foi encontrado");
+            throw new UsernameNotFoundException("Usuário não foi encontrado!");
         }
 
         return usuario;
