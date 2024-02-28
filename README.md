@@ -16,6 +16,6 @@ Este repositório irá conter um sistema de cadastro, desenvolvido com Spring, T
 4. Com a tabelas geradas, vá até a tabela "usuario", lá irá aparecer campos como "id", "login" e "senha"
 5. Insira o seu login que você deseja cadastrar diretamente no banco de dados
 6. Para a senha, precisa criptografar antes de logar, para isso:
-  - Você pode ir em DemoApplication e trocar o "123", pela senha que desejar, com isso será impresso a senha criptografada no console da IDE, basta colar essa senha criptografada no campo "senha" da tabela de "usuario"
+  - Você pode ir em DemoApplication e trocar o "123", pela senha que desejar, executar a aplicação e com isso será impresso a senha criptografada no console da IDE, então resta colar essa senha criptografada no campo "senha" da tabela de "usuario"
 OBS: Se colar a senha não criptografada, não irá funcionar.
 7. Basta logar com as credenciais cadastradas
