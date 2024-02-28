@@ -9,7 +9,13 @@
     <link type="text/css" rel="stylesheet" href="materialize.min.css"  media="screen,projection"/>
 </head>
 <body>
-    <a th:href="@{/cadastro/cadastropessoa}">Cadastro de Pessoa</a>
+
+<script type="text/javascript">
+    // Redireciona para a página desejada após o carregamento da página
+    window.onload = function() {
+        window.location.href = '/cadastro/cadastropessoa';
+    };
+</script>
 
     <script type="text/javascript" src="materialize/js/materialize.js"></script>
     <script type="text/javascript" src="materialize/js//materialize/materialize.min.js"></script>
