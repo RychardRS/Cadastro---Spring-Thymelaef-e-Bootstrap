@@ -1,5 +1,7 @@
 package exemplo1.demo.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,10 +22,11 @@ public class Pessoa implements Serializable {
 
     private String sobrenome;
 
-    private int idade;
+    private Integer idade;
 
    private String cpf;
 
+   @DateTimeFormat(pattern = "dd/MM/yyyy")
    private Date date;
 
     public Long getId() {
@@ -50,11 +53,11 @@ public class Pessoa implements Serializable {
         this.sobrenome = sobrenome;
     }
 
-    public int getIdade() {
+    public Integer getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(Integer idade) {
         this.idade = idade;
     }
 
